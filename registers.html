@@ -78,10 +78,11 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     	
     		<input type="text" name="f_name" placeholder="First name" required="required" />
     		<input type="text" name="m_name" placeholder="Middle name" />
-    		<input type="text" name="l_name" placeholder="Last name"  />
+    		<input type="text" name="l_name" placeholder="Last name" required="required" />
 			<input type="date" name="dob" placeholder="Date of Birth" required="required" />
 	        <input type="text" name="gender" placeholder="Gender" required="required" />
 	        <input type="text" name="e_id" placeholder="Email id" required="required" />
+	        <input type="password" name="password" placeholder="Password" required="required" />
         	<button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
         	
    		</form>
@@ -90,7 +91,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 
   <script src="js/index.js"></script>
 	<?php
-	header("Location: homet.html");
+	header("Location: logint.html");
 	die();
 	?>
 </body>
