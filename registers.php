@@ -22,23 +22,19 @@ $l_name=$_POST['l_name'];
 $dob=$_POST['dob'];
 $gender=$_POST['gender'];
 $e_id=$_POST['e_id'];
-$password=$POST['password'];
+$password=$_POST['password'];
 
 
 }
 $stmt = $conn->prepare("INSERT INTO s_personal (f_name,m_name,l_name,dob,gender,e_id,password)
- VALUES ( ?, ?, ?, ?,?,?)");
+ VALUES ( ?, ?, ?, ?,?,?,?)");
 
-$stmt->bind_param('sssssss',$f_name,$m_name,$l_name,$dob,$e_id,$password);
+$stmt->bind_param('sssssss',$f_name,$m_name,$l_name,$dob,$gender,$e_id,$password);
 
 $stmt->execute();
 
-$sql="SELECT * FROM s_personal WHERE name='$name'";
+$sql="SELECT * FROM s_personal WHERE f_name='$f_name'";
 $result=$conn->query($sql);
 if ($result->num_rows == 1) 
-{
-	header("Location: homet.html");}
-else
-
-	echo $result->num_rows ; 
+	header("Location: homet.html");
 ?>
