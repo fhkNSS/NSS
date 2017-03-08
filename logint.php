@@ -13,18 +13,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 
 }
-$uname = $_POST["u"];
-$password = $_POST["p"];
+$e_id = $_POST["e_id"];
+$password = $_POST["password"];
 
 
-$sql = "SELECT name,password FROM teacher where name='$uname' AND password='$password'";
+$sql = "SELECT e_id,password FROM s_personal where e_id='$e_id' AND password='$password'";
 
 
 $result = $conn->query($sql);
-if ($result->num_rows  == 1) {
-	$_SESSION["u"]=$uname;
-	header("location: homet.html");
-} 
+if ($result->num_rows  == 1)
+	echo "loged in";
+
 
 else 
 {
