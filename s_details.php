@@ -43,7 +43,7 @@ $stmt->bind_param('sssssss',$f_name,$m_name,$l_name,$dob,$gender,$photo,$nationa
 
 $stmt->execute();
 
-$sql="SELECT * FROM s_details WHERE name='$name'";
+$sql="SELECT * FROM s_details WHERE f_name='$f_name'";
 $result=$conn->query($sql);
 if ($result->num_rows == 1) 
 {
