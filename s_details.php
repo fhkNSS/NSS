@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $servername = "localhost";
@@ -20,35 +21,28 @@ $m_name=$_POST['m_name'];
 $l_name=$_POST['l_name'];
 $dob=$_POST['dob'];
 $gender=$_POST['gender'];
-$photo=$_POST['photo'];
-$nationality=$POST['nationality'];
-$country=$POST['country'];
-$id_no=$POST['id_no'];
-$contact_no=$POST['contact_no'];
-$e_id=$POST['e_id'];
-$city =$POST['city'];
-$province=$POST['province'];
-$g_name=$POST['g_name'];
-$g_contact=$POST['g_contact'];
-$s_contact=$POST['s_contact'];
-$f_aid=$POST['f_aid'];
-
-
+$nationality=$_POST['nationality'];
+$country=$_POST['country'];
+$id_number=$_POST['id_number'];
+$contact=$_POST['contact'];
+$e_id=$_POST['e_id'];
+$city=$_POST['city'];
+$province=$_POST['province'];
+$g_name=$_POST['g_name'];
+$g_contact=$_POST['g_contact'];
+$s_contact=$_POST['s_contact'];
+$f_aid=$_POST['f_aid'];
 
 }
-$stmt = $conn->prepare("INSERT INTO s_details (f_name,m_name,l_name,dob,gender,photo,nationality,country,id_no,contact_no,e_id,city,province,g_name,g_contact,s_contact,f_aid)
- VALUES ( ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO s_details (f_name,m_name,l_name,dob,gender,nationality,country,id_number,contact,e_id,city,province,g_name,g_contact,s_contact,f_aid)
+ VALUES ( ?,?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)");
 
-$stmt->bind_param('sssssss',$f_name,$m_name,$l_name,$dob,$gender,$photo,$nationality,$country,$id_no,$contact_no,$e_id,$city,$province,$g_name,$g_contact,$s_contact_no,$f_aid);
+$stmt->bind_param('ssssssssssssssss',$f_name,$m_name,$l_name,$dob,$gender,$nationality,$country,$id_number,$contact,$e_id,$city,$province,$g_name,$g_contact,$s_contact,$f_aid);
 
 $stmt->execute();
 
-$sql="SELECT * FROM s_details WHERE f_name='$f_name'";
+$sql="SELECT * FROM s_personal WHERE e_id='$e_id'";
 $result=$conn->query($sql);
 if ($result->num_rows == 1) 
-{
-	header("Location: homet.html");}
-else
-
-	echo $result->num_rows ; 
+	header("Location: homet.html");
 ?>

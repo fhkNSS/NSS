@@ -33,7 +33,7 @@ $stmt->bind_param('sssssss',$f_name,$m_name,$l_name,$dob,$gender,$e_id,$password
 
 $stmt->execute();
 
-$sql="SELECT * FROM s_personal WHERE f_name='$f_name'";
+$sql="SELECT * FROM s_personal WHERE e_id='$e_id'";
 $result=$conn->query($sql);
 if ($result->num_rows == 1) 
 	header("Location: homet.html");
